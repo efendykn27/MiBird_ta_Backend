@@ -1,0 +1,49 @@
+{% extends 'includes/include.html' %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="../../static/css/dataset.css">
+    <style>
+        label {
+            font-size: 12px;
+        }
+    </style>
+</head>
+{% include "includes/sidebar.html" %}
+
+<div class="container">
+    <div class="daftarBurung">
+        <h2>Isi Data Burung</h2>
+        <form method="post" action="/daftarBurung">
+            <hr>
+            <div>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    {{message}}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <label for="nm_burung">Nama Burung</label>
+                <input class="form-control" type="text" maxlength="35" name="nm_burung" required><br>
+                <label for="nm_ilmiah">Nama Ilmiah</label>
+                <input class="form-control" type="text" name="nm_ilmiah" required><br>
+                <label for="spesies">Spesies</label>
+                <input class="form-control" type="text" name="spesies" required><br>
+                <label for="makanan">Makanan</label>
+                <input class="form-control" type="text" name="makanan" required><br>
+                <label for="status">Status</label>
+                <input class="form-control" type="text" name="status" required><br>
+                <a style="margin-left:21px;"><br>
+                    <button type="submit" class="btn " style="background-color:#FFC700;">Submit</button>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

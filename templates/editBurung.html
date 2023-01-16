@@ -1,0 +1,40 @@
+{% extends 'includes/include.html' %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="../../static/css/dataset.css">
+    <style>
+        label {
+            font-size: 12px;
+        }
+    </style>
+</head>
+{% include "includes/sidebar.html" %}
+
+<div class="container">
+    <div class="daftarBurung">
+        <h2>Update Data Burung</h2>
+        <form method="post" action="/updateBurung/{{editBurung.nama_burung}}">
+            <hr>
+            <div>
+                <label for="nm_burung">Nama Burung</label>
+                <input value="{{editBurung.nama_burung}}" maxlength="35" class="form-control" type="text"
+                    name="nm_burung" disabled ><br>
+                <!-- <label for="nm_ilmiah">Nama Ilmiah</label>
+                <input value="{{editBurung.nama_ilmiah}}" class="form-control" type="text" name="nm_ilmiah" required><br> -->
+                <label for="spesies">Spesies</label>
+                <input value="{{editBurung.spesies}}" class="form-control" type="text" name="spesies" required><br>
+                <label for="makanan">Makanan</label>
+                <input value="{{editBurung.makanan}}" class="form-control" type="text" name="makanan" required><br>
+                <label for="status">Status</label>
+                <input value="{{editBurung.status}}" class="form-control" type="text" name="status" required><br>
+                
+                <a href="/popupedit" style="margin-left:21px;"><br>
+                    <button type="submit" class="btn" style="background-color:#FFC700;">Update Data</button>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

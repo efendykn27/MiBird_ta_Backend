@@ -1,0 +1,41 @@
+{% extends 'includes/include.html' %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="../../static/css/dataset.css">
+    <style>
+        label {
+            font-size: 12px;
+        }
+    </style>
+</head>
+{% include "includes/sidebar.html" %}
+
+<div class="container">
+    <div class="daftarBurung">
+        <h2>Update Data Event</h2>
+        <form method="post" action="/updateEvent/{{editEvent.nama_event}}">
+            <hr>
+            <div>
+                <label for="nama_event">Nama Event</label>
+                <input value="{{editEvent.nama_event}}" class="form-control" type="text" maxlength="35" name="nama_event" required><br>
+                <label for="alamat">Alamat</label>
+                <input value="{{editEvent.alamat}}" class="form-control" type="text" maxlength="50" name="alamat" required><br>
+                <label for="tempat">Tempat</label>
+                <input value="{{editEvent.tempat}}" class="form-control" type="text" maxlength="30" name="tempat" required><br>
+                <label for="tanggal">Tanggal</label>
+                <input value="{{editEvent.tanggal}}" class="form-control" type="date" name="tanggal" required><br>
+                <label for="url_img">Path Poster</label>
+                <input value="{{editEvent.url_img}}" class="form-control" type="text" name="url_img" required><br>
+                <label for="url_event">Url Event</label>
+                <input value="{{editEvent.url_img}}" class="form-control" type="text" name="url_event" required><br>
+
+                <a href="/popupeditevent" style="margin-left:21px;"><br>
+                    <button type="submit" class="btn" style="background-color:#FFC700;">Update Data</button>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
